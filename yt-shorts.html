@@ -1,9 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>YouTube Shorts</title>
+  <title>YouTube Shorts Script Generator</title>
+  <style>
+    body{
+      background:#0f172a;
+      color:white;
+      font-family:Arial;
+      text-align:center;
+      padding:20px;
+    }
+    input,button{
+      padding:12px;
+      width:90%;
+      max-width:400px;
+      margin:10px;
+      border-radius:8px;
+      border:none;
+    }
+    button{
+      background:#22c55e;
+      color:white;
+      font-weight:bold;
+    }
+    #result{
+      margin-top:20px;
+      background:#1e293b;
+      padding:15px;
+      border-radius:10px;
+    }
+  </style>
 </head>
-<body style="background:black;color:white;text-align:center;margin-top:100px;">
-<h1>YouTube Shorts Script Page Working 🔥</h1>
+<body>
+
+<h1>YouTube Shorts Script Generator</h1>
+<p>Enter your topic</p>
+
+<input id="topic" placeholder="example: motivation, gym, facts">
+<br>
+<button onclick="generate()">Generate Script</button>
+
+<div id="result"></div>
+
+<script>
+function generate(){
+  var topic=document.getElementById("topic").value;
+
+  var script =
+  "HOOK: You won’t believe this about " + topic + "!\n\n" +
+  "STORY: Most people don’t know that " + topic + " can completely change your mindset.\n\n" +
+  "VALUE: Start today and you’ll see results faster than 90% people.\n\n" +
+  "CTA: Follow for more daily content!";
+
+  document.getElementById("result").innerText=script;
+}
+</script>
+
 </body>
 </html>
