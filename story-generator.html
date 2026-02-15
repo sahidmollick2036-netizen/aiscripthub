@@ -1,9 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Story Generator</title>
+  <title>Story Generator</title>
+  <style>
+    body{
+      background:#0f172a;
+      color:white;
+      font-family:Arial;
+      text-align:center;
+      padding:20px;
+    }
+    input,button{
+      padding:12px;
+      width:90%;
+      max-width:400px;
+      margin:10px;
+      border-radius:8px;
+      border:none;
+    }
+    button{
+      background:#22c55e;
+      color:white;
+      font-weight:bold;
+    }
+    #result{
+      margin-top:20px;
+      background:#1e293b;
+      padding:15px;
+      border-radius:10px;
+      white-space:pre-line;
+    }
+  </style>
 </head>
-<body style="background:black;color:white;text-align:center;margin-top:100px;">
-<h1>Story Generator Page Working 🔥</h1>
+<body>
+
+<h1>Emotional Story Generator</h1>
+<p>Enter character or topic</p>
+
+<input id="topic" placeholder="example: poor boy, broken friendship, mother love">
+<br>
+<button onclick="generateStory()">Generate Story</button>
+
+<div id="result"></div>
+
+<script>
+function generateStory(){
+  var topic=document.getElementById("topic").value;
+
+  var story =
+  "One day a " + topic + " changed everything...\n\n" +
+  "Nobody believed in them. People laughed and ignored their struggles.\n\n" +
+  "But they kept going every single day, silently fighting battles no one could see.\n\n" +
+  "Years later, the same people who doubted them were asking for advice.\n\n" +
+  "Moral: Never judge someone's beginning. Great endings take time.";
+
+  document.getElementById("result").innerText=story;
+}
+</script>
+
 </body>
 </html>
