@@ -1,75 +1,115 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Instagram Reel Hooks</title>
+<title>Instagram Reel Script Generator</title>
+
 <style>
-body{font-family:Arial,Helvetica,sans-serif;background:#0b1220;color:#fff;margin:0;padding:20px}
-a{color:#7aa2ff;text-decoration:none}
-nav{margin-bottom:20px}
-.container{max-width:700px;margin:auto}
-h1{margin-bottom:5px}
-input{padding:10px;width:70%;border-radius:6px;border:none}
-button{padding:10px 14px;border:none;border-radius:6px;background:#4f7cff;color:white;cursor:pointer}
-.card{background:#111a30;padding:12px;margin:10px 0;border-radius:10px}
-.copy{margin-left:10px;background:#1f9d55}
-footer{margin-top:40px;opacity:.7}
+body{
+  background:#0f172a;
+  color:white;
+  font-family:Arial;
+  text-align:center;
+  padding:20px;
+}
+
+input,select,button{
+  padding:12px;
+  width:90%;
+  max-width:420px;
+  margin:10px;
+  border-radius:10px;
+  border:none;
+}
+
+button{
+  background:#3b82f6;
+  color:white;
+  font-weight:bold;
+}
+
+.card{
+  background:#1e293b;
+  margin:15px auto;
+  padding:18px;
+  border-radius:14px;
+  max-width:600px;
+  text-align:left;
+  white-space:pre-line;
+}
+
+.copy{
+  background:#22c55e;
+  padding:8px 14px;
+  border-radius:8px;
+  float:right;
+  cursor:pointer;
+}
 </style>
 </head>
-<body>
-<div class="container">
-<nav>
-<a href="index.html">Home</a> •
-<a href="reels.html">Instagram Reels</a> •
-<a href="shorts.html">YouTube Scripts</a> •
-<a href="story.html">Story Generator</a>
-</nav><h1>Instagram Reel Hooks</h1>
-<p>Generate Your Own Reel Script</p><input id="topic" placeholder="Enter topic (example: breakup, gym, money)" />
-<button onclick="generate()">Generate</button><div id="result"></div><h2>Ready Hooks</h2>
-<div id="preset"></div><footer>AI Script Hub © 2026</footer>
-</div><script>
-const templates=[
-"Nobody talks about {topic} but this will shock you...",
-"If you struggle with {topic}, watch this till the end",
-"I wish I knew this about {topic} earlier",
-"99% people do {topic} wrong — here is the fix",
-"This small trick changed my {topic} forever",
-"Stop scrolling if you care about {topic}",
-"The dark truth about {topic}",
-"You are wasting years because of {topic}",
-"Here is how pros handle {topic}",
-"Do this once and your {topic} improves instantly"
-];
 
-function generate(){
-const topic=document.getElementById('topic').value.trim();
-if(!topic)return alert('Enter topic');
-let html='';
-for(let i=0;i<5;i++){
-const line=templates[Math.floor(Math.random()*templates.length)].replace('{topic}',topic);
-html+=`<div class="card">${line}<button class="copy" onclick="copyText(this)">Copy</button></div>`;
-}
-document.getElementById('result').innerHTML=html;
-}
+<body>
+
+<h1>Instagram Reel Script Generator</h1>
+<p>Enter topic</p>
+
+<input id="topic" placeholder="example: gym, motivation, breakup">
+
+<br>
+
+<select id="length">
+  <option value="short">10-15 sec Reel</option>
+  <option value="medium">20-30 sec Reel</option>
+</select>
+
+<br>
+<button onclick="generate()">Generate Script</button>
+
+<div id="result"></div>
+
+<script>
 
 function copyText(btn){
-const text=btn.parentElement.innerText.replace('Copy','').trim();
-navigator.clipboard.writeText(text);
-btn.innerText='Copied!';
-setTimeout(()=>btn.innerText='Copy',1200);
+  navigator.clipboard.writeText(btn.parentElement.innerText.replace("Copy",""));
+  btn.innerText="Copied!";
 }
 
-const presets=[
-"What if one habit changes your life forever?",
-"The secret nobody tells you about success",
-"You hear a knock at 3 AM — what do you do?",
-"The mistake that ruined my relationship",
-"A fact that will blow your mind",
-"Once in a lifetime opportunity — don’t miss this"
-];
+function generate(){
 
-let presetHTML='';
-presets.forEach(t=>presetHTML+=`<div class="card">${t}<button class="copy" onclick="copyText(this)">Copy</button></div>`);
-document.getElementById('preset').innerHTML=presetHTML;
-</script></body>
+let topic=document.getElementById("topic").value;
+let length=document.getElementById("length").value;
+
+let script="";
+
+if(length==="short"){
+
+script=
+"HOOK: Stop scrolling if you care about "+topic+"\n\n"+
+"PROBLEM: 90% people fail at "+topic+" because they follow others blindly\n\n"+
+"TIP: Do this for 7 days — stay consistent and track progress\n\n"+
+"CTA: Follow for daily growth tips";
+
+}
+
+else{
+
+script=
+"HOOK: Nobody talks about this in "+topic+"\n\n"+
+"STORY: I tried everything but still saw no results for months\n\n"+
+"REALIZATION: The mistake wasn’t effort — it was strategy\n\n"+
+"VALUE: Small habits done daily beat motivation every time\n\n"+
+"TIP: Focus on one improvement each day for 30 days\n\n"+
+"CTA: Save this and follow for more real advice";
+
+}
+
+document.getElementById("result").innerHTML=
+`<div class="card">
+<button class="copy" onclick="copyText(this)">Copy</button>
+${script}
+</div>`;
+}
+
+</script>
+
+</body>
 </html>
