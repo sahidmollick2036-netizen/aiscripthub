@@ -1,62 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Instagram Reel Hooks - AI Script Hub</title>
-
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Instagram Reel Hooks</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;background:#0b1220;color:#fff;margin:0;padding:20px}
+a{color:#7aa2ff;text-decoration:none}
+nav{margin-bottom:20px}
+.container{max-width:700px;margin:auto}
+h1{margin-bottom:5px}
+input{padding:10px;width:70%;border-radius:6px;border:none}
+button{padding:10px 14px;border:none;border-radius:6px;background:#4f7cff;color:white;cursor:pointer}
+.card{background:#111a30;padding:12px;margin:10px 0;border-radius:10px}
+.copy{margin-left:10px;background:#1f9d55}
+footer{margin-top:40px;opacity:.7}
+</style>
 </head>
-
 <body>
+<div class="container">
+<nav>
+<a href="index.html">Home</a> •
+<a href="reels.html">Instagram Reels</a> •
+<a href="shorts.html">YouTube Scripts</a> •
+<a href="story.html">Story Generator</a>
+</nav><h1>Instagram Reel Hooks</h1>
+<p>Generate Your Own Reel Script</p><input id="topic" placeholder="Enter topic (example: breakup, gym, money)" />
+<button onclick="generate()">Generate</button><div id="result"></div><h2>Ready Hooks</h2>
+<div id="preset"></div><footer>AI Script Hub © 2026</footer>
+</div><script>
+const templates=[
+"Nobody talks about {topic} but this will shock you...",
+"If you struggle with {topic}, watch this till the end",
+"I wish I knew this about {topic} earlier",
+"99% people do {topic} wrong — here is the fix",
+"This small trick changed my {topic} forever",
+"Stop scrolling if you care about {topic}",
+"The dark truth about {topic}",
+"You are wasting years because of {topic}",
+"Here is how pros handle {topic}",
+"Do this once and your {topic} improves instantly"
+];
 
-<nav class="navbar">
-<div class="logo">AI Script Hub</div>
-<ul class="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a href="instagram-reels.html">Instagram Reels</a></li>
-<li><a href="youtube-scripts.html">YouTube Scripts</a></li>
-<li><a href="story-generator.html">Story Generator</a></li>
-<li><a href="caption-generator.html">Caption Generator</a></li>
-<li><a href="hindi-scripts.html">Hindi Scripts</a></li>
-</ul>
-</nav>
+function generate(){
+const topic=document.getElementById('topic').value.trim();
+if(!topic)return alert('Enter topic');
+let html='';
+for(let i=0;i<5;i++){
+const line=templates[Math.floor(Math.random()*templates.length)].replace('{topic}',topic);
+html+=`<div class="card">${line}<button class="copy" onclick="copyText(this)">Copy</button></div>`;
+}
+document.getElementById('result').innerHTML=html;
+}
 
-<main>
+function copyText(btn){
+const text=btn.parentElement.innerText.replace('Copy','').trim();
+navigator.clipboard.writeText(text);
+btn.innerText='Copied!';
+setTimeout(()=>btn.innerText='Copy',1200);
+}
 
-<h1>Instagram Reel Hooks</h1>
+const presets=[
+"What if one habit changes your life forever?",
+"The secret nobody tells you about success",
+"You hear a knock at 3 AM — what do you do?",
+"The mistake that ruined my relationship",
+"A fact that will blow your mind",
+"Once in a lifetime opportunity — don’t miss this"
+];
 
-<!-- GENERATOR PART -->
-<h2>Generate Your Own Reel Script</h2>
-
-<input id="userInput" placeholder="Type topic like love, breakup, horror...">
-<button onclick="generateScript('reels')">Generate</button>
-
-<div id="output" style="margin-top:20px; font-size:18px;"></div>
-
-<hr style="margin:40px 0;">
-
-<!-- READY HOOKS PART -->
-
-<div class="prompts-grid">
-
-<div class="prompt-card"><p>What if I told you one small habit could change your life forever?</p><button class="copy-btn">Copy</button></div>
-<div class="prompt-card"><p>The secret to success that no one talks about...</p><button class="copy-btn">Copy</button></div>
-<div class="prompt-card"><p>You hear a knock at the door at 3 AM... what do you do?</p><button class="copy-btn">Copy</button></div>
-<div class="prompt-card"><p>The one thing that ruined my relationship...</p><button class="copy-btn">Copy</button></div>
-<div class="prompt-card"><p>A fact that will blow your mind...</p><button class="copy-btn">Copy</button></div>
-<div class="prompt-card"><p>Once upon a time, in a world where...</p><button class="copy-btn">Copy</button></div>
-
-</div>
-
-</main>
-
-<footer>
-<p>AI Script Hub © 2026</p>
-</footer>
-
-<script src="script.js"></script>
-<script src="generator-old.js"></script>
-
-</body>
+let presetHTML='';
+presets.forEach(t=>presetHTML+=`<div class="card">${t}<button class="copy" onclick="copyText(this)">Copy</button></div>`);
+document.getElementById('preset').innerHTML=presetHTML;
+</script></body>
 </html>
