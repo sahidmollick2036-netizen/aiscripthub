@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>YouTube Shorts Script Generator</title>
+<title>YouTube Shorts Script Generator</title>
 
 <style>
 body{
@@ -12,7 +12,7 @@ body{
   padding:20px;
 }
 
-input,button{
+input,select,button{
   padding:12px;
   width:90%;
   max-width:420px;
@@ -25,7 +25,6 @@ button{
   background:#22c55e;
   color:white;
   font-weight:bold;
-  cursor:pointer;
 }
 
 #result{
@@ -36,9 +35,10 @@ button{
   white-space:pre-line;
 }
 
-.copyBtn{
-  margin-top:15px;
+.copy{
+  margin-top:12px;
   background:#3b82f6;
+  color:white;
 }
 </style>
 </head>
@@ -46,77 +46,56 @@ button{
 <body>
 
 <h1>YouTube Shorts Script Generator</h1>
-<p>Type a topic</p>
+<p>Enter topic + choose video length</p>
 
-<input id="topic" placeholder="motivation, gym, money, facts">
+<input id="topic" placeholder="motivation, facts, gym, success">
+
+<select id="length">
+<option value="short">10-15 sec</option>
+<option value="long">20-30 sec</option>
+</select>
+
 <br>
 <button onclick="generate()">Generate Script</button>
 
 <div id="result" style="display:none;"></div>
-<button class="copyBtn" onclick="copyScript()" style="display:none;">Copy Script</button>
+<button class="copy" onclick="copyText()" style="display:none;">Copy</button>
 
 <script>
 
 function generate(){
 
-  let topic=document.getElementById("topic").value.trim();
+let topic=document.getElementById("topic").value;
+let len=document.getElementById("length").value;
 
-  if(topic===""){
-    alert("Enter a topic first!");
-    return;
-  }
+if(topic===""){alert("Enter topic");return;}
 
-  const hooks=[
-    `Nobody talks about ${topic} but they should.`,
-    `This will change how you see ${topic}.`,
-    `If you ignore ${topic}, you’re making a mistake.`,
-    `Here’s the truth about ${topic}.`,
-    `You’re doing ${topic} completely wrong.`
-  ];
+let script="";
 
-  const story=[
-    `Most people follow trends without understanding ${topic}.`,
-    `${topic} isn’t hard — you just learned it wrong.`,
-    `The top 1% use ${topic} differently.`,
-    `${topic} works only if you do this.`,
-    `I tested ${topic} for 30 days — here’s what happened.`
-  ];
-
-  const value=[
-    `Start small and stay consistent.`,
-    `Focus on discipline, not motivation.`,
-    `Remove distractions and results come fast.`,
-    `Track progress daily.`,
-    `Improve 1% every day.`
-  ];
-
-  const cta=[
-    `Follow for more daily content.`,
-    `Save this before you forget.`,
-    `Share this with a friend.`,
-    `More tips coming tomorrow.`,
-    `Don’t scroll — apply it today.`
-  ];
-
-  function pick(arr){
-    return arr[Math.floor(Math.random()*arr.length)];
-  }
-
-  let script=
-  "HOOK: "+pick(hooks)+"\n\n"+
-  "STORY: "+pick(story)+"\n\n"+
-  "VALUE: "+pick(value)+"\n\n"+
-  "CTA: "+pick(cta);
-
-  document.getElementById("result").style.display="block";
-  document.querySelector(".copyBtn").style.display="inline-block";
-  document.getElementById("result").innerText=script;
+if(len==="short"){
+script=
+"HOOK: Nobody tells you this about " + topic + "...\n\n" +
+"POINT: 90% people start but quit too early.\n\n" +
+"VALUE: Just stay consistent for 7 days — you’ll see the difference.\n\n" +
+"CTA: Subscribe for daily growth.";
+}
+else{
+script=
+"HOOK: The real truth about " + topic + " will surprise you.\n\n" +
+"STORY: I wasted months doing it wrong until I changed one habit.\n\n" +
+"REALIZATION: Small daily actions beat motivation every time.\n\n" +
+"LESSON: Don’t chase fast success — build unstoppable discipline.\n\n" +
+"CTA: Follow for more real advice.";
 }
 
-function copyScript(){
-  let text=document.getElementById("result").innerText;
-  navigator.clipboard.writeText(text);
-  alert("Copied!");
+document.getElementById("result").style.display="block";
+document.querySelector(".copy").style.display="inline-block";
+document.getElementById("result").innerText=script;
+}
+
+function copyText(){
+navigator.clipboard.writeText(document.getElementById("result").innerText);
+alert("Copied!");
 }
 
 </script>
