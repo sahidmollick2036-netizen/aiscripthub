@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hashtag Generator</title>
+
+<style>
+body{
+  background:#0f172a;
+  color:white;
+  font-family:Arial;
+  text-align:center;
+  padding:20px;
+}
+
+input,button{
+  padding:12px;
+  width:90%;
+  max-width:420px;
+  margin:10px;
+  border-radius:10px;
+  border:none;
+}
+
+button{
+  background:#e11d48;
+  color:white;
+  font-weight:bold;
+}
+
+#result{
+  margin-top:25px;
+  background:#1e293b;
+  padding:18px;
+  border-radius:12px;
+  white-space:pre-line;
+}
+
+.copy{
+  margin-top:12px;
+  background:#22c55e;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Instagram Hashtag Generator</h1>
+<p>Enter topic</p>
+
+<input id="topic" placeholder="fitness, travel, love, car">
+<br>
+<button onclick="generate()">Generate Hashtags</button>
+
+<div id="result" style="display:none;"></div>
+<button class="copy" onclick="copyText()" style="display:none;">Copy</button>
+
+<script>
+
+function generate(){
+
+let t=document.getElementById("topic").value.toLowerCase();
+if(t===""){alert("Enter topic");return;}
+
+let tags=[
+"#"+t,
+"#"+t+"life",
+"#"+t+"lover",
+"#"+t+"daily",
+"#"+t+"post",
+"#"+t+"vibes",
+"#"+t+"motivation",
+"#"+t+"community",
+"#"+t+"trend",
+"#"+t+"reels",
+
+"#viral","#explore","#reels","#instagood","#trending",
+"#fyp","#explorepage","#viralreels","#dailycontent",
+"#creator","#contentcreator","#grow","#engagement",
+"#like","#follow","#share","#post","#instagram","#love"
+];
+
+let shuffled=tags.sort(()=>0.5-Math.random()).slice(0,25);
+
+document.getElementById("result").style.display="block";
+document.querySelector(".copy").style.display="inline-block";
+document.getElementById("result").innerText=shuffled.join(" ");
+}
+
+function copyText(){
+navigator.clipboard.writeText(document.getElementById("result").innerText);
+alert("Copied!");
+}
+
+</script>
+
+</body>
+</html>
