@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Caption Generator</title>
+
+<style>
+body{
+  background:#0f172a;
+  color:white;
+  font-family:Arial;
+  text-align:center;
+  padding:20px;
+}
+
+input,button{
+  padding:12px;
+  width:90%;
+  max-width:420px;
+  margin:10px;
+  border-radius:10px;
+  border:none;
+}
+
+button{
+  background:#22c55e;
+  color:white;
+  font-weight:bold;
+}
+
+#result{
+  margin-top:25px;
+  background:#1e293b;
+  padding:18px;
+  border-radius:12px;
+  white-space:pre-line;
+}
+
+.copy{
+  margin-top:12px;
+  background:#3b82f6;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Instagram Caption Generator</h1>
+<p>Enter topic</p>
+
+<input id="topic" placeholder="travel, gym, friends, love">
+<br>
+<button onclick="generate()">Generate Caption</button>
+
+<div id="result" style="display:none;"></div>
+<button class="copy" onclick="copyText()" style="display:none;">Copy</button>
+
+<script>
+
+const captions=[
+"Living my best {t} life ✨",
+"No caption needed — just {t}",
+"{t} vibes only 🔥",
+"This moment = happiness 💙",
+"Memories made with {t}",
+"Keep calm and enjoy {t}",
+"Smiles powered by {t}",
+"Energy speaks louder than words ⚡",
+"Just another day with {t}",
+"Dream. Believe. {t}."
+];
+
+function generate(){
+let topic=document.getElementById("topic").value;
+if(topic===""){alert("Enter topic");return;}
+
+let c=captions[Math.floor(Math.random()*captions.length)];
+c=c.replace("{t}",topic);
+
+document.getElementById("result").style.display="block";
+document.querySelector(".copy").style.display="inline-block";
+document.getElementById("result").innerText=c;
+}
+
+function copyText(){
+navigator.clipboard.writeText(document.getElementById("result").innerText);
+alert("Copied!");
+}
+
+</script>
+
+</body>
+</html>
