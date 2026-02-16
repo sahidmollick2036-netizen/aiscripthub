@@ -1,61 +1,133 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Story Generator</title>
-  <style>
-    body{
-      background:#0f172a;
-      color:white;
-      font-family:Arial;
-      text-align:center;
-      padding:20px;
-    }
-    input,button{
-      padding:12px;
-      width:90%;
-      max-width:400px;
-      margin:10px;
-      border-radius:8px;
-      border:none;
-    }
-    button{
-      background:#22c55e;
-      color:white;
-      font-weight:bold;
-    }
-    #result{
-      margin-top:20px;
-      background:#1e293b;
-      padding:15px;
-      border-radius:10px;
-      white-space:pre-line;
-    }
-  </style>
+  <title>Emotional Story Generator</title>
+
+<style>
+body{
+  background:#0f172a;
+  color:white;
+  font-family:Arial;
+  text-align:center;
+  padding:20px;
+}
+
+input,button{
+  padding:12px;
+  width:90%;
+  max-width:420px;
+  margin:10px;
+  border-radius:10px;
+  border:none;
+}
+
+button{
+  background:#22c55e;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+#result{
+  margin-top:25px;
+  background:#1e293b;
+  padding:18px;
+  border-radius:12px;
+  white-space:pre-line;
+}
+
+.copyBtn{
+  margin-top:15px;
+  background:#3b82f6;
+}
+</style>
 </head>
+
 <body>
 
 <h1>Emotional Story Generator</h1>
 <p>Enter character or topic</p>
 
-<input id="topic" placeholder="example: poor boy, broken friendship, mother love">
+<input id="topic" placeholder="poor boy, lost love, mother sacrifice">
 <br>
 <button onclick="generateStory()">Generate Story</button>
 
-<div id="result"></div>
+<div id="result" style="display:none;"></div>
+<button class="copyBtn" onclick="copyStory()" style="display:none;">Copy Story</button>
 
 <script>
+
+function pick(arr){
+  return arr[Math.floor(Math.random()*arr.length)];
+}
+
 function generateStory(){
-  var topic=document.getElementById("topic").value;
 
-  var story =
-  "One day a " + topic + " changed everything...\n\n" +
-  "Nobody believed in them. People laughed and ignored their struggles.\n\n" +
-  "But they kept going every single day, silently fighting battles no one could see.\n\n" +
-  "Years later, the same people who doubted them were asking for advice.\n\n" +
-  "Moral: Never judge someone's beginning. Great endings take time.";
+  let topic=document.getElementById("topic").value.trim();
 
+  if(topic===""){
+    alert("Enter a topic first!");
+    return;
+  }
+
+  const openings=[
+    `One day a ${topic} faced a moment that changed life forever.`,
+    `Everyone ignored the ${topic}, but destiny was watching.`,
+    `The ${topic} had nothing — except hope.`,
+    `People laughed at the ${topic} every day.`,
+    `The story of a ${topic} nobody believed in.`
+  ];
+
+  const struggles=[
+    `Days were hard and nights were silent with tears.`,
+    `They fought battles nobody could see.`,
+    `Failure became a daily routine.`,
+    `Every step forward cost pain.`,
+    `Loneliness became their only friend.`
+  ];
+
+  const turning=[
+    `But one decision changed everything.`,
+    `Then life finally gave a chance.`,
+    `Until one day opportunity knocked.`,
+    `Then came the moment they were waiting for.`,
+    `Slowly things started changing.`
+  ];
+
+  const ending=[
+    `Years later the same people showed respect.`,
+    `Now they became an inspiration.`,
+    `Success finally found them.`,
+    `Their story started giving hope to others.`,
+    `They proved everyone wrong.`
+  ];
+
+  const moral=[
+    `Never judge small beginnings.`,
+    `Pain today becomes strength tomorrow.`,
+    `Consistency beats talent.`,
+    `Hope is stronger than fear.`,
+    `Your time will come.`
+  ];
+
+  let story =
+  pick(openings)+"\n\n"+
+  pick(struggles)+"\n\n"+
+  pick(turning)+"\n\n"+
+  pick(ending)+"\n\n"+
+  "Moral: "+pick(moral);
+
+  document.getElementById("result").style.display="block";
+  document.querySelector(".copyBtn").style.display="inline-block";
   document.getElementById("result").innerText=story;
 }
+
+function copyStory(){
+  let text=document.getElementById("result").innerText;
+  navigator.clipboard.writeText(text);
+  alert("Copied!");
+}
+
 </script>
 
 </body>
