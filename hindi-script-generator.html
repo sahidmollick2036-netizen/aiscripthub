@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hindi Reel Script Generator</title>
+
+<style>
+body{
+  background:#0f172a;
+  color:white;
+  font-family:Arial;
+  text-align:center;
+  padding:20px;
+}
+
+input,select,button{
+  padding:12px;
+  width:90%;
+  max-width:420px;
+  margin:10px;
+  border-radius:10px;
+  border:none;
+}
+
+button{
+  background:#f59e0b;
+  color:black;
+  font-weight:bold;
+}
+
+#result{
+  margin-top:25px;
+  background:#1e293b;
+  padding:18px;
+  border-radius:12px;
+  white-space:pre-line;
+}
+
+.copy{
+  margin-top:12px;
+  background:#22c55e;
+  color:white;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Hindi Reel Script Generator</h1>
+<p>Topic + Video Length</p>
+
+<input id="topic" placeholder="जैसे: motivation, breakup, study">
+
+<select id="length">
+<option value="short">10-15 sec</option>
+<option value="long">20-30 sec</option>
+</select>
+
+<br>
+<button onclick="generate()">Generate Script</button>
+
+<div id="result" style="display:none;"></div>
+<button class="copy" onclick="copyText()" style="display:none;">Copy</button>
+
+<script>
+
+function generate(){
+
+let t=document.getElementById("topic").value;
+let len=document.getElementById("length").value;
+
+if(t===""){alert("Topic likho");return;}
+
+let script="";
+
+if(len==="short"){
+script=
+"HOOK: क्या आपने कभी सोचा है " + t + " आपकी ज़िंदगी बदल सकता है?\n\n" +
+"POINT: ज़्यादातर लोग शुरुआत ही नहीं करते, इसलिए पीछे रह जाते हैं।\n\n" +
+"VALUE: रोज़ 1% सुधार = 1 साल में नई पहचान।\n\n" +
+"CTA: ऐसे और वीडियो के लिए फॉलो करो।";
+}
+else{
+script=
+"HOOK: सच बताऊँ — " + t + " ही आपकी लाइफ रोक रहा है।\n\n" +
+"STORY: पहले मैं भी दूसरों को दोष देता था, लेकिन असली समस्या मेरी आदतें थीं।\n\n" +
+"REALIZATION: जिस दिन जिम्मेदारी ली, उसी दिन बदलाव शुरू हुआ।\n\n" +
+"LESSON: कोई भी छोटा कदम, खाली बैठने से बेहतर है।\n\n" +
+"CTA: रोज़ grow करने के लिए follow करो।";
+}
+
+document.getElementById("result").style.display="block";
+document.querySelector(".copy").style.display="inline-block";
+document.getElementById("result").innerText=script;
+}
+
+function copyText(){
+navigator.clipboard.writeText(document.getElementById("result").innerText);
+alert("Copied!");
+}
+
+</script>
+
+</body>
+</html>
