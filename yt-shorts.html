@@ -2,58 +2,123 @@
 <html>
 <head>
   <title>YouTube Shorts Script Generator</title>
-  <style>
-    body{
-      background:#0f172a;
-      color:white;
-      font-family:Arial;
-      text-align:center;
-      padding:20px;
-    }
-    input,button{
-      padding:12px;
-      width:90%;
-      max-width:400px;
-      margin:10px;
-      border-radius:8px;
-      border:none;
-    }
-    button{
-      background:#22c55e;
-      color:white;
-      font-weight:bold;
-    }
-    #result{
-      margin-top:20px;
-      background:#1e293b;
-      padding:15px;
-      border-radius:10px;
-    }
-  </style>
+
+<style>
+body{
+  background:#0f172a;
+  color:white;
+  font-family:Arial;
+  text-align:center;
+  padding:20px;
+}
+
+input,button{
+  padding:12px;
+  width:90%;
+  max-width:420px;
+  margin:10px;
+  border-radius:10px;
+  border:none;
+}
+
+button{
+  background:#22c55e;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+#result{
+  margin-top:25px;
+  background:#1e293b;
+  padding:18px;
+  border-radius:12px;
+  white-space:pre-line;
+}
+
+.copyBtn{
+  margin-top:15px;
+  background:#3b82f6;
+}
+</style>
 </head>
+
 <body>
 
 <h1>YouTube Shorts Script Generator</h1>
-<p>Enter your topic</p>
+<p>Type a topic</p>
 
-<input id="topic" placeholder="example: motivation, gym, facts">
+<input id="topic" placeholder="motivation, gym, money, facts">
 <br>
 <button onclick="generate()">Generate Script</button>
 
-<div id="result"></div>
+<div id="result" style="display:none;"></div>
+<button class="copyBtn" onclick="copyScript()" style="display:none;">Copy Script</button>
 
 <script>
+
 function generate(){
-  var topic=document.getElementById("topic").value;
 
-  var script =
-  "HOOK: You won’t believe this about " + topic + "!\n\n" +
-  "STORY: Most people don’t know that " + topic + " can completely change your mindset.\n\n" +
-  "VALUE: Start today and you’ll see results faster than 90% people.\n\n" +
-  "CTA: Follow for more daily content!";
+  let topic=document.getElementById("topic").value.trim();
 
+  if(topic===""){
+    alert("Enter a topic first!");
+    return;
+  }
+
+  const hooks=[
+    `Nobody talks about ${topic} but they should.`,
+    `This will change how you see ${topic}.`,
+    `If you ignore ${topic}, you’re making a mistake.`,
+    `Here’s the truth about ${topic}.`,
+    `You’re doing ${topic} completely wrong.`
+  ];
+
+  const story=[
+    `Most people follow trends without understanding ${topic}.`,
+    `${topic} isn’t hard — you just learned it wrong.`,
+    `The top 1% use ${topic} differently.`,
+    `${topic} works only if you do this.`,
+    `I tested ${topic} for 30 days — here’s what happened.`
+  ];
+
+  const value=[
+    `Start small and stay consistent.`,
+    `Focus on discipline, not motivation.`,
+    `Remove distractions and results come fast.`,
+    `Track progress daily.`,
+    `Improve 1% every day.`
+  ];
+
+  const cta=[
+    `Follow for more daily content.`,
+    `Save this before you forget.`,
+    `Share this with a friend.`,
+    `More tips coming tomorrow.`,
+    `Don’t scroll — apply it today.`
+  ];
+
+  function pick(arr){
+    return arr[Math.floor(Math.random()*arr.length)];
+  }
+
+  let script=
+  "HOOK: "+pick(hooks)+"\n\n"+
+  "STORY: "+pick(story)+"\n\n"+
+  "VALUE: "+pick(value)+"\n\n"+
+  "CTA: "+pick(cta);
+
+  document.getElementById("result").style.display="block";
+  document.querySelector(".copyBtn").style.display="inline-block";
   document.getElementById("result").innerText=script;
 }
+
+function copyScript(){
+  let text=document.getElementById("result").innerText;
+  navigator.clipboard.writeText(text);
+  alert("Copied!");
+}
+
 </script>
 
 </body>
