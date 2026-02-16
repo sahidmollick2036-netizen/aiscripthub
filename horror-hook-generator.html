@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Horror Story Hook Generator</title>
+  <style>
+    body{
+      background:#0f172a;
+      color:white;
+      font-family:Arial;
+      text-align:center;
+      padding:20px;
+    }
+    button{
+      padding:12px;
+      margin:10px;
+      border-radius:8px;
+      border:none;
+      background:#ef4444;
+      color:white;
+      font-weight:bold;
+      cursor:pointer;
+    }
+    #result{
+      margin-top:20px;
+      background:#1e293b;
+      padding:15px;
+      border-radius:10px;
+      white-space:pre-line;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Horror Story Hook Generator</h1>
+<p>Scary opening lines for reels & shorts</p>
+
+<button onclick="generate()">Generate Hook</button>
+
+<div id="result"></div>
+
+<script>
+function generate(){
+
+var hooks=[
+"I heard footsteps in my room… but I live alone.",
+"My phone rang at 3:12 AM — it was my own number.",
+"The mirror blinked before I did.",
+"Someone knocked… from inside the closet.",
+"I checked the baby monitor — the crib was empty.",
+"The shadow behind me didn’t copy my movements.",
+"I got a message from my dead friend.",
+"The CCTV showed me sleeping… while I was awake.",
+"My dog keeps barking at the corner every night.",
+"I waved at the stranger — he waved from inside my house.",
+"The elevator opened to a floor that doesn’t exist.",
+"I heard my mom calling me… she died yesterday.",
+"The photo updated itself.",
+"I locked the door — then heard breathing behind me.",
+"The doll moved closer every morning.",
+"I live on the top floor… footsteps above me.",
+"The hallway keeps getting longer at night.",
+"My reflection smiled late.",
+"The lights turned off exactly at 2:59 every night.",
+"Someone whispered my name through my headphones."
+];
+
+var pick=hooks[Math.floor(Math.random()*hooks.length)];
+document.getElementById("result").innerText=pick;
+
+}
+</script>
+
+</body>
+</html>
