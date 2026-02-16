@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Faceless YouTube Channel Name Generator</title>
+  <style>
+    body{
+      background:#0f172a;
+      color:white;
+      font-family:Arial;
+      text-align:center;
+      padding:20px;
+    }
+    input,select,button{
+      padding:12px;
+      width:90%;
+      max-width:400px;
+      margin:10px;
+      border-radius:8px;
+      border:none;
+    }
+    button{
+      background:#22c55e;
+      color:white;
+      font-weight:bold;
+      cursor:pointer;
+    }
+    #result{
+      margin-top:20px;
+      background:#1e293b;
+      padding:15px;
+      border-radius:10px;
+      white-space:pre-line;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Faceless YouTube Channel Name Generator</h1>
+<p>Select your niche</p>
+
+<select id="niche">
+  <option>Motivation</option>
+  <option>Facts</option>
+  <option>Horror</option>
+  <option>Finance</option>
+  <option>Anime</option>
+  <option>Gaming</option>
+  <option>AI</option>
+  <option>Stories</option>
+</select>
+
+<br>
+<button onclick="generate()">Generate Names</button>
+
+<div id="result"></div>
+
+<script>
+function generate(){
+
+var niche=document.getElementById("niche").value;
+
+var prefixes=["Hidden","Silent","Dark","NextGen","Daily","Alpha","Shadow","Quantum","Viral","Neo"];
+var suffixes=["Hub","Central","Verse","Factory","Lab","Nation","Zone","Studio","Network","Vault"];
+
+var output="";
+
+for(let i=0;i<12;i++){
+  let name = prefixes[Math.floor(Math.random()*prefixes.length)] + " " + niche + " " + suffixes[Math.floor(Math.random()*suffixes.length)];
+  output += name + "\n";
+}
+
+document.getElementById("result").innerText=output;
+}
+</script>
+
+</body>
+</html>
