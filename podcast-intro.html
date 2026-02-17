@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Podcast Intro Script Generator</title>
+<style>
+body{
+background:#0f172a;
+color:white;
+font-family:Arial;
+text-align:center;
+padding:20px;
+}
+input,select,button{
+padding:12px;
+width:90%;
+max-width:400px;
+margin:10px;
+border-radius:8px;
+border:none;
+}
+button{
+background:#22c55e;
+color:white;
+font-weight:bold;
+}
+#result{
+margin-top:20px;
+background:#1e293b;
+padding:15px;
+border-radius:10px;
+white-space:pre-line;
+}
+</style>
+</head>
+<body>
+
+<h1>Podcast Intro Generator</h1>
+<p>Enter podcast topic</p>
+
+<input id="topic" placeholder="example: business, mindset, relationships">
+
+<select id="tone">
+<option value="professional">Professional</option>
+<option value="friendly">Friendly</option>
+<option value="funny">Funny</option>
+</select>
+
+<br>
+<button onclick="generate()">Generate Intro</button>
+
+<div id="result"></div>
+
+<script>
+function generate(){
+var topic=document.getElementById("topic").value;
+var tone=document.getElementById("tone").value;
+
+var intro="";
+
+if(tone=="professional"){
+intro="Welcome to the podcast where we talk about " + topic + ".\n\nEvery episode we break down real strategies, real lessons, and real experiences to help you grow.\n\nSo grab your headphones and let's begin.";
+}
+
+if(tone=="friendly"){
+intro="Hey everyone! Welcome back!\n\nToday we’re talking about " + topic + " and trust me — you’ll relate to this.\n\nSit back, relax, and enjoy the conversation.";
+}
+
+if(tone=="funny"){
+intro="Alright so nobody prepared me for " + topic + "… but here we are 😂\n\nWelcome to the most honest podcast on the internet.\n\nLet’s start before I change my mind.";
+}
+
+document.getElementById("result").innerText=intro;
+}
+</script>
+
+</body>
+</html>
