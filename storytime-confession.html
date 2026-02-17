@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Storytime Confession Script Generator</title>
+<style>
+body{
+background:#020617;
+color:white;
+font-family:Arial;
+text-align:center;
+padding:20px;
+}
+select,button{
+padding:12px;
+width:90%;
+max-width:400px;
+margin:10px;
+border-radius:8px;
+border:none;
+}
+button{
+background:#22c55e;
+color:white;
+font-weight:bold;
+}
+#result{
+margin-top:20px;
+background:#1e293b;
+padding:15px;
+border-radius:10px;
+white-space:pre-line;
+}
+</style>
+</head>
+<body>
+
+<h1>Storytime Confession Generator</h1>
+<p>Create dramatic storytime scripts</p>
+
+<select id="type">
+<option value="school">School</option>
+<option value="relationship">Relationship</option>
+<option value="family">Family</option>
+<option value="embarrassing">Embarrassing</option>
+</select>
+
+<br>
+<button onclick="generate()">Generate Story</button>
+
+<div id="result"></div>
+
+<script>
+function generate(){
+var t=document.getElementById("type").value;
+var story="";
+
+if(t=="school"){
+story="I never told anyone this… but in school I once got blamed for something I didn’t do. The teacher shouted at me in front of everyone… and the real person stayed silent.";
+}
+
+if(t=="relationship"){
+story="I trusted someone more than myself… and that was my biggest mistake. The day I saw the truth, I didn’t cry… I just stopped caring.";
+}
+
+if(t=="family"){
+story="My parents still don’t know this… I pretended to be okay for years just so they wouldn’t worry. But inside, I was breaking slowly.";
+}
+
+if(t=="embarrassing"){
+story="This happened in public… and I wished the earth would swallow me. Everyone laughed — and I had to laugh too like it was fine.";
+}
+
+document.getElementById("result").innerText=story;
+}
+</script>
+
+</body>
+</html>
