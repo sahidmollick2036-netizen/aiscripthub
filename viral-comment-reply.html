@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Viral Comment Reply Generator</title>
+<style>
+body{
+background:#020617;
+color:white;
+font-family:Arial;
+text-align:center;
+padding:20px;
+}
+input,select,button{
+padding:12px;
+width:90%;
+max-width:400px;
+margin:10px;
+border-radius:8px;
+border:none;
+}
+button{
+background:#f43f5e;
+color:white;
+font-weight:bold;
+}
+#result{
+margin-top:20px;
+background:#1e293b;
+padding:15px;
+border-radius:10px;
+white-space:pre-line;
+}
+</style>
+</head>
+<body>
+
+<h1>Viral Comment Reply Generator</h1>
+<p>Enter a comment someone wrote</p>
+
+<input id="comment" placeholder="example: this video is cringe">
+
+<select id="style">
+<option value="funny">Funny</option>
+<option value="savage">Savage</option>
+<option value="polite">Polite</option>
+</select>
+
+<br>
+<button onclick="generate()">Generate Reply</button>
+
+<div id="result"></div>
+
+<script>
+function generate(){
+var c=document.getElementById("comment").value;
+var s=document.getElementById("style").value;
+
+var reply="";
+
+if(s=="funny"){
+reply="Bro watched the whole thing just to say: '"+c+"' 😂 Respect the dedication.";
+}
+
+if(s=="savage"){
+reply="You typed '"+c+"' but still gave me watch time. Appreciate the support.";
+}
+
+if(s=="polite"){
+reply="Thanks for sharing your opinion! I’ll try to improve next time 🙌";
+}
+
+document.getElementById("result").innerText=reply;
+}
+</script>
+
+</body>
+</html>
