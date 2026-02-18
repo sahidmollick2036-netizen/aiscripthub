@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Podcast Topic Ideas Generator</title>
+<style>
+body{font-family:sans-serif;background:#111827;color:white;text-align:center;padding:40px}
+button{padding:12px 22px;font-size:16px;margin-top:20px;cursor:pointer}
+#result{margin-top:30px;font-size:20px}
+</style>
+</head>
+<body>
+
+<h1>Podcast Topic Ideas for Beginners</h1>
+<button onclick="generate()">Generate Topic</button>
+<div id="result"></div>
+
+<script>
+const topics=[
+"Why nobody talks about being average",
+"Things school never prepared us for",
+"Why friendships end after age 18",
+"Being busy vs being productive",
+"Social media confidence vs real confidence",
+"Fear of starting something new",
+"Why people quit too early",
+"Overthinking in modern life",
+"Comparison kills creativity",
+"Finding purpose without pressure",
+"Introverts in a loud world",
+"Learning alone vs learning in public",
+"Comfort zone addiction",
+"Digital life vs real life",
+"Why consistency is boring but powerful"
+];
+
+function generate(){
+document.getElementById("result").innerText=
+topics[Math.floor(Math.random()*topics.length)];
+}
+</script>
+
+</body>
+</html>
