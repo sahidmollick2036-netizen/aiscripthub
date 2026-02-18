@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Morning Routine Script Generator</title>
-<style>
-body{font-family:sans-serif;background:#0f172a;color:white;text-align:center;padding:40px}
-button{padding:12px 22px;font-size:16px;margin-top:20px;cursor:pointer}
-#result{margin-top:30px;font-size:20px;white-space:pre-line}
-</style>
-</head>
-<body>
-
 <h1>Morning Routine Reel Script</h1>
-<button onclick="generate()">Generate Script</button>
+
+<button onclick="generate()">Generate</button>
+<button onclick="copyText()">Copy</button>
+
 <div id="result"></div>
 
 <script>
@@ -43,10 +33,15 @@ const ending=[
 function r(arr){return arr[Math.floor(Math.random()*arr.length)]}
 
 function generate(){
-document.getElementById("result").innerText=
-r(hook)+"\n\n"+r(routine)+"\n"+r(routine)+"\n"+r(routine)+"\n\n"+r(ending);
+let text="";
+for(let i=0;i<5;i++){
+text+= (i+1)+". "+r(hook)+"\n"+r(routine)+" "+r(routine)+" "+r(routine)+"\n"+r(ending)+"\n\n";
+}
+document.getElementById("result").innerText=text;
+}
+
+function copyText(){
+navigator.clipboard.writeText(document.getElementById("result").innerText);
+alert("Copied!");
 }
 </script>
-
-</body>
-</html>
