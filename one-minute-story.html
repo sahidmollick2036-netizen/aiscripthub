@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>One Minute Story Generator</title>
+<style>
+body{font-family:sans-serif;background:#020617;color:white;text-align:center;padding:40px}
+button{padding:12px 22px;font-size:16px;margin-top:20px;cursor:pointer}
+#result{margin-top:30px;font-size:20px;white-space:pre-line}
+</style>
+</head>
+<body>
+
+<h1>One Minute Story Script</h1>
+<button onclick="generate()">Generate Story</button>
+<div id="result"></div>
+
+<script>
+const situation=[
+"A boy always sat alone in class.",
+"She never celebrated her birthday.",
+"He kept checking his phone every night.",
+"The old man visited the park daily.",
+"A girl saved every message."
+];
+
+const twist=[
+"Everyone thought he liked silence.",
+"But nobody knew why.",
+"Waiting for someone who never replied.",
+"Watching children he never had.",
+"From someone who forgot her."
+];
+
+const realization=[
+"School was the only place he wasn't ignored.",
+"Some people disappear before leaving.",
+"Hope is louder than reality.",
+"Loneliness can exist in crowds.",
+"Memories hold harder than people."
+];
+
+function r(a){return a[Math.floor(Math.random()*a.length)]}
+
+function generate(){
+document.getElementById("result").innerText=
+r(situation)+"\n\n"+r(twist)+"\n\n"+r(realization);
+}
+</script>
+
+</body>
+</html>
