@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Morning Routine Script Generator</title>
+<style>
+body{font-family:sans-serif;background:#0f172a;color:white;text-align:center;padding:40px}
+button{padding:12px 22px;font-size:16px;margin-top:20px;cursor:pointer}
+#result{margin-top:30px;font-size:20px;white-space:pre-line}
+</style>
+</head>
+<body>
+
+<h1>Morning Routine Reel Script</h1>
+<button onclick="generate()">Generate Script</button>
+<div id="result"></div>
+
+<script>
+const hook=[
+"Nobody wakes up motivated.",
+"Discipline starts before motivation.",
+"Your future is decided every morning.",
+"Success has a morning alarm.",
+"Lazy mornings create hard lives."
+];
+
+const routine=[
+"Drink water.",
+"Move your body.",
+"Step outside sunlight.",
+"Plan your day.",
+"Start before your brain complains."
+];
+
+const ending=[
+"Small mornings create big futures.",
+"You win the day before it begins.",
+"Control mornings, control life.",
+"Consistency beats motivation.",
+"Your day follows your start."
+];
+
+function r(arr){return arr[Math.floor(Math.random()*arr.length)]}
+
+function generate(){
+document.getElementById("result").innerText=
+r(hook)+"\n\n"+r(routine)+"\n"+r(routine)+"\n"+r(routine)+"\n\n"+r(ending);
+}
+</script>
+
+</body>
+</html>
