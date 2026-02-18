@@ -3,108 +3,87 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Morning Routine Script Generator</title>
+<title>Morning Routine Reel Script Generator</title>
+
+<link rel="stylesheet" href="style.css">
 
 <style>
-body{
-background:#0f172a;
-color:white;
-font-family:Arial;
-margin:0;
+.container{
+    text-align:center;
+    margin-top:40px;
 }
-
-.wrapper{
-max-width:700px;
-margin:60px auto;
-padding:20px;
-text-align:center;
+input, button{
+    padding:12px;
+    width:90%;
+    max-width:400px;
+    margin:10px;
+    border-radius:8px;
+    border:none;
 }
-
-textarea{
-width:100%;
-height:120px;
-padding:12px;
-border-radius:10px;
-border:none;
-margin-top:15px;
-font-size:16px;
-}
-
 button{
-margin-top:15px;
-padding:12px 18px;
-border:none;
-border-radius:10px;
-background:#22c55e;
-color:white;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
+    background:#22c55e;
+    color:white;
+    font-weight:bold;
 }
-
-.result{
-margin-top:25px;
-background:#1e293b;
-padding:18px;
-border-radius:12px;
-white-space:pre-line;
+#result{
+    margin-top:20px;
+    background:#1e293b;
+    padding:15px;
+    border-radius:10px;
+    white-space:pre-line;
+    max-width:500px;
+    margin-left:auto;
+    margin-right:auto;
 }
 </style>
 </head>
 
 <body>
 
-<div class="wrapper">
+<div class="container">
 
 <h1>Morning Routine Reel Script</h1>
-<p>Generate voiceover scripts for daily routine videos</p>
+<p>Generate voiceover lines for routine videos</p>
 
-<textarea id="topic" placeholder="Example: productive student, gym guy, 5AM routine"></textarea>
-
-<br>
 <button onclick="generate()">Generate</button>
 
-<div class="result" id="output"></div>
+<div id="result"></div>
 
 </div>
 
 <script>
 function generate(){
 
-const routines = [
-"Every morning I wake up before the world does. No noise, no distractions — just me and my goals.",
-"5AM. While others sleep, I build my future one habit at a time.",
-"My day starts with discipline, not motivation. Motivation fades, routine stays.",
-"Small daily actions create big life changes. This is how I reset my life every morning.",
-"A powerful morning creates a powerful life. Protect your first hour.",
-"You don’t need more time, you need better mornings.",
-"The first battle of the day is waking up — win that and you win everything.",
-"Your future depends on how you start your morning today.",
-"Morning habits decide your bank balance and your body shape.",
-"Win the morning, win the day.",
-"Most people check their phone. I check my goals.",
-"Your competition is still sleeping.",
-"Discipline begins before sunrise.",
-"Comfort sleeps. Winners wake up.",
-"Your life changes at the time you wake up."
+let lines = [
+"I woke up before my problems today.",
+"No phone. Just peace and chai.",
+"Morning silence hits different.",
+"Sunlight fixed my mood.",
+"Discipline feels better than motivation.",
+"5AM me is proud of 10PM me.",
+"I started the day, not social media.",
+"My future is built before breakfast.",
+"Small habits. Big life.",
+"Morning decides the whole day.",
+"Today started with intention, not distraction.",
+"The world sleeps while winners prepare.",
+"Water first, worries later.",
+"Peace is louder in the morning.",
+"Consistency begins at sunrise.",
+"Your day listens to your morning.",
+"Slow mornings create fast success.",
+"Coffee and clarity.",
+"The grind starts before notifications.",
+"Respect the morning, respect your life."
 ];
 
-let output = "";
-let used = [];
+// shuffle (no duplicates)
+let shuffled = lines.sort(() => 0.5 - Math.random());
 
-for(let i=0;i<5;i++){
+// take 5 unique lines
+let result = shuffled.slice(0,5).join("\n");
 
-let random;
-do{
-random = Math.floor(Math.random()*routines.length);
-}while(used.includes(random));
-
-used.push(random);
-output += (i+1) + ". " + routines[random] + "\n\n";
-
-}
-
-document.getElementById("output").innerText = output;
+document.getElementById("result").innerText = result;
 }
 </script>
 
