@@ -1,47 +1,75 @@
-<h1>Morning Routine Reel Script</h1>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Morning Routine Script</title>
 
-<button onclick="generate()">Generate</button>
-<button onclick="copyText()">Copy</button>
+<style>
+body{
+background:#0f172a;
+color:white;
+font-family:Arial;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
+text-align:center;
+}
+
+.box{
+background:#1e293b;
+padding:25px;
+border-radius:12px;
+width:90%;
+max-width:500px;
+}
+
+input,button{
+padding:12px;
+width:90%;
+margin:10px;
+border-radius:8px;
+border:none;
+}
+
+button{
+background:#22c55e;
+color:white;
+font-weight:bold;
+}
+
+#result{
+margin-top:20px;
+white-space:pre-line;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h2>Morning Routine Script Generator</h2>
+
+<input id="topic" placeholder="student / gym / productive day">
+<br>
+<button onclick="gen()">Generate</button>
 
 <div id="result"></div>
+</div>
 
 <script>
-const hook=[
-"Nobody wakes up motivated.",
-"Discipline starts before motivation.",
-"Your future is decided every morning.",
-"Success has a morning alarm.",
-"Lazy mornings create hard lives."
-];
+function gen(){
+let t=document.getElementById("topic").value;
 
-const routine=[
-"Drink water.",
-"Move your body.",
-"Step outside sunlight.",
-"Plan your day.",
-"Start before your brain complains."
-];
+let script =
+"Wake up early — no snooze today.\n\n"+
+"Start your "+t+" routine with water and deep breathing.\n\n"+
+"Plan 3 important tasks before touching phone.\n\n"+
+"Small discipline daily = big success later.";
 
-const ending=[
-"Small mornings create big futures.",
-"You win the day before it begins.",
-"Control mornings, control life.",
-"Consistency beats motivation.",
-"Your day follows your start."
-];
-
-function r(arr){return arr[Math.floor(Math.random()*arr.length)]}
-
-function generate(){
-let text="";
-for(let i=0;i<5;i++){
-text+= (i+1)+". "+r(hook)+"\n"+r(routine)+" "+r(routine)+" "+r(routine)+"\n"+r(ending)+"\n\n";
-}
-document.getElementById("result").innerText=text;
-}
-
-function copyText(){
-navigator.clipboard.writeText(document.getElementById("result").innerText);
-alert("Copied!");
+document.getElementById("result").innerText=script;
 }
 </script>
+
+</body>
+</html>
