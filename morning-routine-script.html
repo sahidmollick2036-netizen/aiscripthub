@@ -3,89 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Morning Routine Reel Script Generator</title>
-
-<link rel="stylesheet" href="style.css">
+<title>Morning Routine Reel Script</title>
 
 <style>
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#0b172a;
+    color:white;
+    display:flex;
+    justify-content:center;
+}
+
 .container{
     text-align:center;
-    margin-top:40px;
-}
-input, button{
-    padding:12px;
+    margin-top:80px;
     width:90%;
-    max-width:400px;
-    margin:10px;
-    border-radius:8px;
-    border:none;
+    max-width:600px;
 }
+
+h1{font-size:32px;margin-bottom:10px;}
+p{opacity:0.8;margin-bottom:30px;}
+
 button{
     background:#22c55e;
-    color:white;
-    font-weight:bold;
-}
-#result{
-    margin-top:20px;
-    background:#1e293b;
-    padding:15px;
+    border:none;
+    padding:15px 30px;
     border-radius:10px;
-    white-space:pre-line;
-    max-width:500px;
-    margin-left:auto;
-    margin-right:auto;
+    font-size:18px;
+    color:white;
+    cursor:pointer;
+    margin-bottom:30px;
+}
+
+.result{
+    background:#1e293b;
+    padding:20px;
+    border-radius:14px;
+    line-height:1.7;
+    font-size:18px;
+    min-height:140px;
 }
 </style>
 </head>
-
 <body>
 
 <div class="container">
-
-<h1>Morning Routine Reel Script</h1>
-<p>Generate voiceover lines for routine videos</p>
-
-<button onclick="generate()">Generate</button>
-
-<div id="result"></div>
-
+    <h1>Morning Routine Reel Script</h1>
+    <p>Generate voiceover lines for routine videos</p>
+    <button onclick="generate()">Generate</button>
+    <div class="result" id="output">Click generate to get script</div>
 </div>
 
 <script>
-function generate(){
 
-let lines = [
-"I woke up before my problems today.",
-"No phone. Just peace and chai.",
-"Morning silence hits different.",
-"Sunlight fixed my mood.",
-"Discipline feels better than motivation.",
-"5AM me is proud of 10PM me.",
-"I started the day, not social media.",
-"My future is built before breakfast.",
-"Small habits. Big life.",
-"Morning decides the whole day.",
-"Today started with intention, not distraction.",
-"The world sleeps while winners prepare.",
-"Water first, worries later.",
-"Peace is louder in the morning.",
-"Consistency begins at sunrise.",
-"Your day listens to your morning.",
-"Slow mornings create fast success.",
-"Coffee and clarity.",
-"The grind starts before notifications.",
-"Respect the morning, respect your life."
+const hooks = [
+"I wake up before the world starts talking.",
+"Mornings feel different when no one needs you yet.",
+"5 AM isn't productive… it's peaceful.",
+"Everyone sleeps. I meet myself.",
+"The day hasn't judged me yet."
 ];
 
-// shuffle (no duplicates)
-let shuffled = lines.sort(() => 0.5 - Math.random());
+const scenes = [
+"The room is cold and silent.",
+"Sunlight slowly touches my desk.",
+"Only chai and quiet breathing.",
+"My phone still hasn’t turned on.",
+"The streets outside are empty."
+];
 
-// take 5 unique lines
-let result = shuffled.slice(0,5).join("\n");
+const feelings = [
+"This is the only time life feels slow.",
+"I can finally hear my own thoughts.",
+"No pressure exists here.",
+"I don’t have to perform for anyone.",
+"I feel ahead of my problems."
+];
 
-document.getElementById("result").innerText = result;
+const thoughts = [
+"Maybe discipline is just self-respect.",
+"Success probably starts in silence.",
+"Peace is more addictive than sleep.",
+"Future me is built right now.",
+"Small mornings create big lives."
+];
+
+const endings = [
+"Your day listens to your morning.",
+"Win the morning, survive the life.",
+"Nobody sees this part — that’s why it matters.",
+"This is where confidence actually comes from.",
+"Before the world wakes… become someone."
+];
+
+function pick(arr, used){
+    let choice;
+    do{
+        choice = arr[Math.floor(Math.random()*arr.length)];
+    }while(used.includes(choice));
+    used.push(choice);
+    return choice;
 }
-</script>
 
+function generate(){
+    let used = [];
+
+    let script =
+        pick(hooks,used) + "<br>" +
+        pick(scenes,used) + "<br>" +
+        pick(feelings,used) + "<br>" +
+        pick(thoughts,used) + "<br>" +
+        pick(endings,used);
+
+    document.getElementById("output").innerHTML = script;
+}
+
+</script>
 </body>
 </html>
