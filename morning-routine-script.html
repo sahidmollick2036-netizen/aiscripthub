@@ -79,12 +79,32 @@ const routines = [
 "A powerful morning creates a powerful life. Protect your first hour.",
 "You don’t need more time, you need better mornings.",
 "The first battle of the day is waking up — win that and you win everything.",
-"Your future depends on how you start your morning today."
+"Your future depends on how you start your morning today.",
+"Morning habits decide your bank balance and your body shape.",
+"Win the morning, win the day.",
+"Most people check their phone. I check my goals.",
+"Your competition is still sleeping.",
+"Discipline begins before sunrise.",
+"Comfort sleeps. Winners wake up.",
+"Your life changes at the time you wake up."
 ];
 
-document.getElementById("output").innerText =
-routines[Math.floor(Math.random()*routines.length)];
+let output = "";
+let used = [];
 
+for(let i=0;i<5;i++){
+
+let random;
+do{
+random = Math.floor(Math.random()*routines.length);
+}while(used.includes(random));
+
+used.push(random);
+output += (i+1) + ". " + routines[random] + "\n\n";
+
+}
+
+document.getElementById("output").innerText = output;
 }
 </script>
 
