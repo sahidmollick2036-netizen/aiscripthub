@@ -1,115 +1,57 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html lang="en">
 <head>
-<title>Instagram Reel Script Generator</title>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart AI Writer</title>
 <style>
-body{
-  background:#0f172a;
-  color:white;
-  font-family:Arial;
-  text-align:center;
-  padding:20px;
-}
-
-input,select,button{
-  padding:12px;
-  width:90%;
-  max-width:420px;
-  margin:10px;
-  border-radius:10px;
-  border:none;
-}
-
-button{
-  background:#3b82f6;
-  color:white;
-  font-weight:bold;
-}
-
-.card{
-  background:#1e293b;
-  margin:15px auto;
-  padding:18px;
-  border-radius:14px;
-  max-width:600px;
-  text-align:left;
-  white-space:pre-line;
-}
-
-.copy{
-  background:#22c55e;
-  padding:8px 14px;
-  border-radius:8px;
-  float:right;
-  cursor:pointer;
-}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0b1220;color:#e5e7eb;display:flex;flex-direction:column;height:100vh}
+header{padding:18px;text-align:center;font-size:24px;font-weight:700;background:#111827;border-bottom:1px solid #1f2937}
+.container{max-width:900px;margin:30px auto;padding:20px;width:100%}
+textarea{width:100%;height:90px;background:#111827;color:#fff;border:1px solid #1f2937;border-radius:10px;padding:12px;font-size:16px}
+select,button{margin-top:12px;padding:12px;border-radius:10px;border:none;font-size:16px}
+button{background:#22c55e;color:#fff;width:100%;font-weight:700;cursor:pointer}
+.results{margin-top:20px;background:#111827;border-radius:12px;padding:18px;line-height:1.7}
+.line{margin-bottom:12px}
 </style>
 </head>
-
 <body>
-
-<h1>Instagram Reel Script Generator</h1>
-<p>Enter topic</p>
-
-<input id="topic" placeholder="example: gym, motivation, breakup">
-
-<br>
-
-<select id="length">
-  <option value="short">10-15 sec Reel</option>
-  <option value="medium">20-30 sec Reel</option>
+<header>AI Smart Script Writer</header>
+<div class="container">
+<textarea id="topic" placeholder="Write your topic... (example: gym motivation, sad breakup, horror story)"></textarea>
+<select id="style">
+<option value="motivational">Motivational</option>
+<option value="emotional">Emotional</option>
+<option value="story">Story</option>
+<option value="funny">Funny</option>
+<option value="dark">Dark / Horror</option>
 </select>
-
-<br>
-<button onclick="generate()">Generate Script</button>
-
-<div id="result"></div>
-
+<button onclick="generate()">Generate Like AI</button>
+<div id="output" class="results"></div>
+</div>
 <script>
-
-function copyText(btn){
-  navigator.clipboard.writeText(btn.parentElement.innerText.replace("Copy",""));
-  btn.innerText="Copied!";
-}
-
+function pick(arr){return arr[Math.floor(Math.random()*arr.length)]}
+function uniqueLines(lines){return [...new Set(lines)].slice(0,5)}
 function generate(){
+let topic=document.getElementById('topic').value.trim()||"life";
+let style=document.getElementById('style').value;const openers=[ Nobody talks about ${topic} like this..., This is why ${topic} is changing people, I learned ${topic} the hard way, The truth about ${topic} hurts, You think you understand ${topic}? wait... ];
 
-let topic=document.getElementById("topic").value;
-let length=document.getElementById("length").value;
+const emotional=[ Some nights ${topic} feels heavier than silence, I smiled outside but ${topic} stayed inside, People left, but ${topic} stayed, ${topic} teaches you who really cares, Healing starts the moment you accept ${topic} ];
 
-let script="";
+const motivational=[ ${topic} doesn't wait for lazy people, Small progress in ${topic} beats excuses, Your future depends on ${topic} today, Discipline turns ${topic} into success, You vs yesterday — ${topic} decides ];
 
-if(length==="short"){
+const funny=[ ${topic} looked easy on YouTube, I tried ${topic} once... never again, ${topic} at 3am hits different, My brain during ${topic}: error 404, ${topic} ruined my sleep schedule ];
 
-script=
-"HOOK: Stop scrolling if you care about "+topic+"\n\n"+
-"PROBLEM: 90% people fail at "+topic+" because they follow others blindly\n\n"+
-"TIP: Do this for 7 days — stay consistent and track progress\n\n"+
-"CTA: Follow for daily growth tips";
+const dark=[ ${topic} started with a sound behind me, I shouldn't have touched ${topic}, The room changed after ${topic}, ${topic} was not alone, I heard breathing near ${topic} ];
 
-}
+const endings=[ And that's when everything changed., You understand now?, Remember this feeling., Not everyone survives this lesson., Save this before you forget. ];
 
-else{
+let pool=motivational; if(style==='emotional') pool=emotional; if(style==='funny') pool=funny; if(style==='dark') pool=dark; if(style==='story') pool=[...emotional,...dark];
 
-script=
-"HOOK: Nobody talks about this in "+topic+"\n\n"+
-"STORY: I tried everything but still saw no results for months\n\n"+
-"REALIZATION: The mistake wasn’t effort — it was strategy\n\n"+
-"VALUE: Small habits done daily beat motivation every time\n\n"+
-"TIP: Focus on one improvement each day for 30 days\n\n"+
-"CTA: Save this and follow for more real advice";
+let results=[]; for(let i=0;i<10;i++){ results.push(${pick(openers)} ${pick(pool)} ${pick(endings)}); }
 
-}
+results=uniqueLines(results);
 
-document.getElementById("result").innerHTML=
-`<div class="card">
-<button class="copy" onclick="copyText(this)">Copy</button>
-${script}
-</div>`;
-}
-
-</script>
+document.getElementById('output').innerHTML=results.map(t=><div class='line'>${t}</div>).join(''); } </script>
 
 </body>
 </html>
