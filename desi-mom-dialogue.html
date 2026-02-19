@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Desi Mom Dialogue Generator</title>
+<style>
+body{
+  background:#0f172a;
+  color:white;
+  font-family:Arial;
+  text-align:center;
+  padding:30px;
+}
+input,button{
+  padding:12px;
+  width:90%;
+  max-width:400px;
+  margin:10px;
+  border-radius:8px;
+  border:none;
+}
+button{background:#22c55e;color:white;font-weight:bold;}
+#result{
+  margin-top:20px;
+  background:#1e293b;
+  padding:15px;
+  border-radius:10px;
+  white-space:pre-line;
+}
+</style>
+</head>
+<body>
+
+<h1>Desi Mom Dialogue Generator (Hindi)</h1>
+<input id="topic" placeholder="example: phone, study, sleep">
+<br>
+<button onclick="generate()">Generate</button>
+<div id="result"></div>
+
+<script>
+function pick(arr){return arr[Math.floor(Math.random()*arr.length)]}
+
+function generate(){
+let t=document.getElementById("topic").value||"phone";
+
+let lines=[
+`"Din bhar bas ${t}! Kitab kab khulega?"`,
+`"Mere zamane me hum ${t} nahi zimmedari uthate the"`,
+`"Raat ke 2 baje ${t}? Naukri mil gayi kya?"`,
+`"Mujhe sab pata hai ${t} me kya chal raha hai"`,
+`"Ek din ${t} tumhe barbaad karega yaad rakhna"`,
+`"Result aayega tab samajh aayega ${t} ka nuksaan"`,
+`"Khana thanda ho gaya par ${t} garam chal raha hai"`,
+`"Tumse zyada tumhara ${t} important ho gaya hai"`,
+`"Padosi ke bachche ${t} nahi topper ban rahe"`,
+`"Bas aaj last warning hai ${t} bandh karo"`
+];
+
+let used=new Set();
+let output="";
+while(used.size<5){
+ let l=pick(lines);
+ if(!used.has(l)){used.add(l);output+=l+"\n\n";}
+}
+document.getElementById("result").innerText=output;
+}
+</script>
+</body>
+</html>
