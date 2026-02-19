@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Introvert vs Extrovert Script</title>
+<style>
+body{background:#0f172a;color:white;font-family:Arial;text-align:center;padding:30px;}
+input,button{padding:12px;width:90%;max-width:400px;margin:10px;border-radius:8px;border:none;}
+button{background:#22c55e;color:white;font-weight:bold;}
+#result{margin-top:20px;background:#1e293b;padding:15px;border-radius:10px;white-space:pre-line;}
+</style>
+</head>
+<body>
+
+<h1>Introvert vs Extrovert Reel Script</h1>
+<input id="topic" placeholder="example: party, school, trip">
+<br>
+<button onclick="generate()">Generate</button>
+<div id="result"></div>
+
+<script>
+function pick(a){return a[Math.floor(Math.random()*a.length)]}
+
+function generate(){
+let t=document.getElementById("topic").value||"party";
+
+let intro=[
+`Introvert: "Koi mujhe ${t} me notice na kare bas"`,
+`Introvert: "Main corner me perfectly khush hoon"`,
+`Introvert: "Social battery already 5% hai"`,
+`Introvert: "Kaash cancel ho jaye ${t}"`,
+`Introvert: "Message kar leta hu milne ki kya zarurat"`
+];
+
+let extro=[
+`Extrovert: "Chalo sabse pehle main hi entry maarunga"`,
+`Extrovert: "Bhai speaker kahan hai music badhao"`,
+`Extrovert: "New log? Perfect! New friends!"`,
+`Extrovert: "Selfie time guys!"`,
+`Extrovert: "Aaj ghar late hi jayenge"`
+];
+
+let out="";
+for(let i=0;i<5;i++){
+out+=pick(intro)+"\n"+pick(extro)+"\n\n";
+}
+document.getElementById("result").innerText=out;
+}
+</script>
+</body>
+</html>
