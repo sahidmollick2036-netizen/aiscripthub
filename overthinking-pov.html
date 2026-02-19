@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Overthinking Night POV</title>
+<style>
+body{background:#0f172a;color:white;font-family:Arial;text-align:center;padding:30px;}
+input,button{padding:12px;width:90%;max-width:400px;margin:10px;border-radius:8px;border:none;}
+button{background:#22c55e;color:white;font-weight:bold;}
+#result{margin-top:20px;background:#1e293b;padding:15px;border-radius:10px;white-space:pre-line;}
+</style>
+</head>
+<body>
+
+<h1>Overthinking Night POV Script</h1>
+<input id="topic" placeholder="example: life, future, relationship">
+<br>
+<button onclick="generate()">Generate</button>
+<div id="result"></div>
+
+<script>
+function pick(a){return a[Math.floor(Math.random()*a.length)]}
+
+function generate(){
+let t=document.getElementById("topic").value||"life";
+
+let lines=[
+`Sab so gaye... par mera dimaag abhi bhi ${t} soch raha hai`,
+`Agar maine woh decision na liya hota to?`,
+`Kya mai sach me sahi direction me ja raha hu`,
+`Log bolte hain sab thik ho jayega... kab?`,
+`Kal subah sab normal hoga par abhi nahi`,
+`Mujhe khud samajh nahi aata mai kya chahata hu`,
+`Har raat same thoughts repeat hote hain`,
+`Kisi ko pata bhi nahi mai kya feel karta hu`,
+`Future ka darr sone nahi deta`,
+`Bas ek break chahiye dimaag se`
+];
+
+let used=new Set();
+let out="";
+while(used.size<5){
+let l=pick(lines);
+if(!used.has(l)){used.add(l);out+=l+"\n\n";}
+}
+document.getElementById("result").innerText=out;
+}
+</script>
+</body>
+</html>
