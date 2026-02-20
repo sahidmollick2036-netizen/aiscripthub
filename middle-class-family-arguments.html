@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Middle Class Family Arguments Script Hindi</title>
+
+<style>
+body{
+  background:#0f172a;
+  color:white;
+  font-family:Arial;
+  text-align:center;
+  padding:40px;
+}
+.container{
+  max-width:700px;
+  margin:auto;
+}
+button{
+  padding:10px 20px;
+  background:#22c55e;
+  border:none;
+  border-radius:8px;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+.result{
+  margin-top:20px;
+  background:#1e293b;
+  padding:20px;
+  border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Middle Class Family Arguments Script Generator (Hindi)</h1>
+<p>Create realistic desi family drama dialogue.</p>
+
+<button onclick="generate()">Generate Script</button>
+
+<div class="result" id="output"></div>
+</div>
+
+<script>
+function generate(){
+const scripts = [
+"Maa: Har waqt phone mein lage rehte ho!\nBeta: Maa bas 5 minute aur!",
+"Papa: Bijli ka bill dekha hai?\nBeta: Papa main job dhoondh raha hoon!",
+"Maa: Sharma ji ka beta dekh lo.\nBeta: Maa please comparison band karo!",
+"Papa: Tumhe zimmedari samajh nahi aati.\nBeta: Main try kar raha hoon papa.",
+"Maa: Paise ped pe nahi ugte.\nBeta: Main bhi struggle kar raha hoon maa."
+];
+
+document.getElementById("output").innerText =
+scripts[Math.floor(Math.random()*scripts.length)];
+}
+</script>
+
+</body>
+</html>
