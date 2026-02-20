@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Topper vs Backbencher Roleplay Script</title>
+
+<style>
+body{
+  background:#0f172a;
+  color:white;
+  font-family:Arial;
+  text-align:center;
+  padding:40px;
+}
+.container{
+  max-width:700px;
+  margin:auto;
+}
+button{
+  padding:10px 20px;
+  background:#22c55e;
+  border:none;
+  border-radius:8px;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+.result{
+  margin-top:20px;
+  background:#1e293b;
+  padding:20px;
+  border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Class Topper vs Backbencher Roleplay Script Generator</h1>
+<p>Generate funny school contrast scenes for reels.</p>
+
+<button onclick="generate()">Generate Script</button>
+
+<div class="result" id="output"></div>
+</div>
+
+<script>
+function generate(){
+const scripts = [
+"Topper: Maine pura syllabus revise kar liya.\nBackbencher: Maine toh pen bhi nahi kharida.",
+"Topper: Exam kal hai!\nBackbencher: Tension kyun? Bhagwan pe bharosa rakho.",
+"Topper: 95% aaye.\nBackbencher: Pass ho gaya? Party!",
+"Topper: Notes chahiye?\nBackbencher: Haan warna main fail ho jaunga.",
+"Topper: Future secure hai.\nBackbencher: Meme page banaunga, tension mat lo."
+];
+
+document.getElementById("output").innerText =
+scripts[Math.floor(Math.random()*scripts.length)];
+}
+</script>
+
+</body>
+</html>
