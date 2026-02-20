@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poor Boy Rich Girl Love Story Script Generator</title>
+
+<style>
+body{
+  background:#0f172a;
+  color:white;
+  font-family:Arial;
+  text-align:center;
+  padding:40px;
+}
+.container{
+  max-width:700px;
+  margin:auto;
+}
+button{
+  padding:10px 20px;
+  background:#22c55e;
+  border:none;
+  border-radius:8px;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+.result{
+  margin-top:20px;
+  background:#1e293b;
+  padding:20px;
+  border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Poor Boy Rich Girl Love Story Script Generator</h1>
+<p>Generate dramatic class-difference romance scenes for reels.</p>
+
+<button onclick="generate()">Generate Script</button>
+
+<div class="result" id="output"></div>
+</div>
+
+<script>
+function generate(){
+const scripts = [
+"Girl: Tum samajhte kyun nahi? Hum alag duniya se aate hain.\nBoy: Pyaar duniya nahi dekhta... sirf dil dekhta hai.",
+"Girl: Mere papa kabhi accept nahi karenge.\nBoy: Main prove karunga ki gareebi kamzori nahi hoti.",
+"Girl: Tumhare paas paisa nahi hai.\nBoy: Mere paas tum ho... aur woh kaafi hai.",
+"Girl: Log kya kahenge?\nBoy: Jab hum successful honge, wahi log taali bajayenge.",
+"Girl: Shayad humein alag ho jaana chahiye.\nBoy: Agar pyaar sach hai, toh hum kabhi alag nahi honge."
+];
+
+document.getElementById("output").innerText =
+scripts[Math.floor(Math.random()*scripts.length)];
+}
+</script>
+
+</body>
+</html>
