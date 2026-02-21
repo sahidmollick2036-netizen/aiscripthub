@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First Viral Reel Script for Beginners Hindi</title>
+
+<style>
+body{
+  background:#0f172a;
+  color:white;
+  font-family:Arial;
+  text-align:center;
+  padding:40px;
+}
+.container{
+  max-width:700px;
+  margin:auto;
+}
+button{
+  padding:10px 20px;
+  background:#22c55e;
+  border:none;
+  border-radius:8px;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+.result{
+  margin-top:20px;
+  background:#1e293b;
+  padding:20px;
+  border-radius:10px;
+  white-space:pre-line;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>First Viral Reel Script for Beginners (Hindi)</h1>
+<p>Generate beginner-friendly viral reel scripts.</p>
+
+<button onclick="generate()">Generate Script</button>
+
+<div class="result" id="output"></div>
+</div>
+
+<script>
+function generate(){
+const scripts = [
+"Hook: Agar yeh meri first reel viral ho gayi toh?\nMain beginner hoon… lekin sapne bade hain.\nAaj se consistency start.\nDekhte hain kismat kiske saath hai.",
+"Hook: Sab log kehte the content banana easy hai.\nReality: Camera on karte hi confidence off.\nBut today I start anyway.\nYeh meri journey ki first reel hai.",
+"Hook: Zero followers se start kar raha hoon.\nNa setup, na fancy camera.\nSirf mehnat aur phone.\nLet’s make this viral.",
+"Hook: Agar aap bhi beginner ho toh yeh reel aapke liye hai.\nShuruaat perfect nahi hoti.\nLekin shuruaat zaroori hoti hai.",
+"Hook: First reel hai… nervous hoon.\nPar rukunga nahi.\nKal se better banaunga.\nYahi promise hai."
+];
+
+document.getElementById("output").innerText =
+scripts[Math.floor(Math.random()*scripts.length)];
+}
+</script>
+
+</body>
+</html>
