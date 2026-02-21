@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Village Life vs City Life Reel Script Hindi</title>
+
+<style>
+body{
+  background:#0f172a;
+  color:white;
+  font-family:Arial;
+  text-align:center;
+  padding:40px;
+}
+.container{
+  max-width:700px;
+  margin:auto;
+}
+button{
+  padding:10px 20px;
+  background:#22c55e;
+  border:none;
+  border-radius:8px;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+.result{
+  margin-top:20px;
+  background:#1e293b;
+  padding:20px;
+  border-radius:10px;
+  white-space:pre-line;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Village Life vs City Life Reel Script (Hindi)</h1>
+<p>Generate comparison storytelling scripts.</p>
+
+<button onclick="generate()">Generate Script</button>
+
+<div class="result" id="output"></div>
+</div>
+
+<script>
+function generate(){
+const scripts = [
+"Village: Subah ki fresh hawa.\nCity: Alarm aur traffic noise.\nVillage: Shanti.\nCity: Race.",
+"Village life: Sab ek dusre ko jaante hain.\nCity life: Padosi ka naam bhi nahi pata.",
+"Village: Kam paisa, zyada sukoon.\nCity: Zyada paisa, kam time.",
+"Village: Khet aur mitti ki khushboo.\nCity: Concrete jungle.",
+"Village: Dil se jeena.\nCity: Target ke liye jeena."
+];
+
+document.getElementById("output").innerText =
+scripts[Math.floor(Math.random()*scripts.length)];
+}
+</script>
+
+</body>
+</html>
