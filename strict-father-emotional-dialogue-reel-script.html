@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strict Father Emotional Dialogue Reel Script</title>
+
+<style>
+body{
+  background:#0f172a;
+  color:white;
+  font-family:Arial;
+  text-align:center;
+  padding:40px;
+}
+.container{
+  max-width:700px;
+  margin:auto;
+}
+button{
+  padding:10px 20px;
+  background:#22c55e;
+  border:none;
+  border-radius:8px;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+.result{
+  margin-top:20px;
+  background:#1e293b;
+  padding:20px;
+  border-radius:10px;
+  white-space:pre-line;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Strict Father Emotional Dialogue Reel Script</h1>
+<p>Generate emotional father-child conversation scripts.</p>
+
+<button onclick="generate()">Generate Script</button>
+
+<div class="result" id="output"></div>
+</div>
+
+<script>
+function generate(){
+const scripts = [
+"Father: Main strict hoon kyunki duniya aur zyada strict hai.\nSon: Mujhe laga aap mujhse naraaz hain.\nFather: Naraaz nahi… fikar karta hoon.",
+"Father: Tumhe samajh nahi aata zimmedari kya hoti hai.\nSon: Main try kar raha hoon papa.\nFather: Bas kabhi haar mat maanna.",
+"Father: Main daantta hoon… par pyaar kam nahi hai.\nSon: Aaj samjha papa.",
+"Father: Mere sapne adhure reh gaye.\nSon: Main aapka sapna poora karunga.",
+"Father: Main emotions nahi dikha pata.\nSon: Lekin main mehsoos karta hoon."
+];
+
+document.getElementById("output").innerText =
+scripts[Math.floor(Math.random()*scripts.length)];
+}
+</script>
+
+</body>
+</html>
