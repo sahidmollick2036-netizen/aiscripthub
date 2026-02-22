@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painful One Sided Love Shayari in Roman Hindi</title>
+
+<style>
+body{
+  background:#0f172a;
+  color:white;
+  font-family:Arial;
+  text-align:center;
+  padding:40px;
+}
+.container{
+  max-width:700px;
+  margin:auto;
+}
+button{
+  padding:10px 20px;
+  background:#22c55e;
+  border:none;
+  border-radius:8px;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+.result{
+  margin-top:20px;
+  background:#1e293b;
+  padding:20px;
+  border-radius:10px;
+  white-space:pre-line;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Painful One Sided Love Shayari (Roman Hindi)</h1>
+<p>Generate Roman Hindi sad lines.</p>
+
+<button onclick="generate()">Generate Shayari</button>
+
+<div class="result" id="output"></div>
+</div>
+
+<script>
+function generate(){
+const shayari = [
+"Main use chah kar bhi keh na saka,\nWoh samajh kar bhi samajh na saki.",
+"Ek tarfa pyaar ka dard bhi ajeeb hota hai,\nMuskurana padta hai jab dil ro raha hota hai.",
+"Woh kisi aur ka ho gaya,\nAur main khud se bhi door ho gaya.",
+"Uski khushi mein khush rehna seekh liya,\nChahe meri khushi usmein kabhi thi hi nahi.",
+"Maine use apna sab kuch maana,\nUsne mujhe kabhi kuch nahi maana."
+];
+
+document.getElementById("output").innerText =
+shayari[Math.floor(Math.random()*shayari.length)];
+}
+</script>
+
+</body>
+</html>
