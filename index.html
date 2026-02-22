@@ -11,15 +11,25 @@ body{
   text-align:center;
 }
 
-.top{
-  padding:30px;
+header{
+  padding:40px 20px 20px 20px;
+}
+
+#searchBar{
+  width:90%;
+  max-width:600px;
+  padding:15px;
+  border-radius:12px;
+  border:none;
+  font-size:16px;
+  margin-top:20px;
 }
 
 .container{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
   gap:20px;
-  padding:20px;
+  padding:30px;
 }
 
 .card{
@@ -38,21 +48,22 @@ body{
   border-radius:8px;
   font-weight:bold;
 }
-</style></head><body><header class="top">
+</style></head><body><header>
 <h1>AI Script Hub</h1>
-<p>Free viral tools for creators</p>
-</header><section class="container"><!-- Core Tools (4) --><div class="card"><h3>Instagram Reels Script</h3><a class="btn" href="instagram-reels.html">Open</a></div>
+<p>Find the perfect script tool instantly</p>
+<input type="text" id="searchBar" onkeyup="searchTools()" placeholder="Search tool... (e.g. shayari, dark comedy, reel script)">
+</header><section class="container" id="toolContainer"><!-- 29 TOTAL PAGES --><div class="card"><h3>Instagram Reels Script</h3><a class="btn" href="instagram-reels.html">Open</a></div>
 <div class="card"><h3>YouTube Shorts Script</h3><a class="btn" href="yt-shorts.html">Open</a></div>
 <div class="card"><h3>Hindi Script Generator</h3><a class="btn" href="hindi-script-generator.html">Open</a></div>
-<div class="card"><h3>Story Generator</h3><a class="btn" href="story-generator.html">Open</a></div><!-- Growth Tools (4) --><div class="card"><h3>Caption Generator</h3><a class="btn" href="caption-generator.html">Open</a></div>
+<div class="card"><h3>Story Generator</h3><a class="btn" href="story-generator.html">Open</a></div><div class="card"><h3>Caption Generator</h3><a class="btn" href="caption-generator.html">Open</a></div>
 <div class="card"><h3>Hashtag Generator</h3><a class="btn" href="hashtag-generator.html">Open</a></div>
 <div class="card"><h3>Bio Generator</h3><a class="btn" href="bio-generator.html">Open</a></div>
-<div class="card"><h3>Faceless Channel Name</h3><a class="btn" href="faceless-name-generator.html">Open</a></div><!-- Viral Content Tools (3) --><div class="card"><h3>Motivation Ending Lines</h3><a class="btn" href="motivation-ending-lines.html">Open</a></div>
+<div class="card"><h3>Faceless Channel Name</h3><a class="btn" href="faceless-name-generator.html">Open</a></div><div class="card"><h3>Motivation Ending Lines</h3><a class="btn" href="motivation-ending-lines.html">Open</a></div>
 <div class="card"><h3>Horror Hook Generator</h3><a class="btn" href="horror-hook-generator.html">Open</a></div>
-<div class="card"><h3>Viral Comment Reply</h3><a class="btn" href="viral-comment-reply.html">Open</a></div><!-- SEO Script Pages (4) --><div class="card"><h3>Morning Routine Script</h3><a class="btn" href="morning-routine.html">Open</a></div>
+<div class="card"><h3>Viral Comment Reply</h3><a class="btn" href="viral-comment-reply.html">Open</a></div><div class="card"><h3>Morning Routine Script</h3><a class="btn" href="morning-routine.html">Open</a></div>
 <div class="card"><h3>Sad Shayari Captions</h3><a class="btn" href="sad-shayari-caption.html">Open</a></div>
 <div class="card"><h3>One Minute Story</h3><a class="btn" href="one-minute-story.html">Open</a></div>
-<div class="card"><h3>Podcast Topic Ideas</h3><a class="btn" href="podcast-topic-ideas.html">Open</a></div><!-- Roleplay & POV Pages (9) --><div class="card"><h3>Desi Mom Dialogues</h3><a class="btn" href="desi-mom-dialogue.html">Open</a></div>
+<div class="card"><h3>Podcast Topic Ideas</h3><a class="btn" href="podcast-topic-ideas.html">Open</a></div><div class="card"><h3>Desi Mom Dialogues</h3><a class="btn" href="desi-mom-dialogue.html">Open</a></div>
 <div class="card"><h3>Introvert vs Extrovert Script</h3><a class="btn" href="introvert-extrovert-script.html">Open</a></div>
 <div class="card"><h3>Overthinking POV</h3><a class="btn" href="overthinking-pov.html">Open</a></div>
 <div class="card"><h3>Poor Boy Rich Girl Script</h3><a class="btn" href="poor-boy-rich-girl.html">Open</a></div>
@@ -60,6 +71,22 @@ body{
 <div class="card"><h3>Class Topper vs Backbencher</h3><a class="btn" href="class-topper-vs-backbencher.html">Open</a></div>
 <div class="card"><h3>First Viral Reel Script (Hindi)</h3><a class="btn" href="first-viral-reel-script-beginners-hindi.html">Open</a></div>
 <div class="card"><h3>Village Life vs City Life Script</h3><a class="btn" href="village-life-vs-city-life-reel-script-hindi.html">Open</a></div>
-<div class="card"><h3>Strict Father Emotional Dialogue</h3><a class="btn" href="strict-father-emotional-dialogue-reel-script.html">Open</a></div><!-- Extra Tools (2) --><div class="card"><h3>Podcast Intro Generator</h3><a class="btn" href="podcast-intro.html">Open</a></div>
-<div class="card"><h3>Storytime Confession</h3><a class="btn" href="storytime-confession.html">Open</a></div></section></body>
+<div class="card"><h3>Strict Father Emotional Dialogue</h3><a class="btn" href="strict-father-emotional-dialogue-reel-script.html">Open</a></div><div class="card"><h3>Podcast Intro Generator</h3><a class="btn" href="podcast-intro.html">Open</a></div>
+<div class="card"><h3>Storytime Confession</h3><a class="btn" href="storytime-confession.html">Open</a></div><div class="card"><h3>One Sided Love Shayari for Instagram Reels</h3><a class="btn" href="one-sided-love-shayari-instagram-reels-hindi.html">Open</a></div>
+<div class="card"><h3>Painful One Sided Love Shayari Roman Hindi</h3><a class="btn" href="painful-one-sided-love-shayari-roman-hindi.html">Open</a></div>
+<div class="card"><h3>Waiting One Sided Love Shayari</h3><a class="btn" href="waiting-for-someone-one-sided-love-shayari.html">Open</a></div></section><script>
+function searchTools(){
+  const input = document.getElementById("searchBar").value.toLowerCase();
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    const text = card.innerText.toLowerCase();
+    if(text.includes(input)){
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+</script></body>
 </html>
